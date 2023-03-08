@@ -32,3 +32,7 @@ Also from NYCOpenData, the NY Police Department (NYPD) provides another dataset 
 Once the data is cleaned, it should look similar to this DB mock-up:
 ![traffic_db_wip.png](images/traffic_db_wip.png)
 
+Status:
+Did alot of reoganizing in terms of comitting files and updating our csv file to reflect the values that we need; also reduced the number of items to not take up space
+
+I am working on using the .mask() function in order to replace the colors in the csv file with different values 
