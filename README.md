@@ -63,3 +63,17 @@ color_filter = filter_rows_by_values(df, "Vehicle Color", ["BLACK", "WHITE","BLU
 color_filter.head(50)
 `````
 
+Update 2: 3/9/2023
+
+I was able to change the values into integers 1-10 using the code:
+
+`````
+df['Vehicle Color'] = df['Vehicle Color'].apply(lambda x: colors[x] if (x in colors) else 9)
+car_colors.head(10)
+
+`````
+The following table was produced:
+
+![image](https://user-images.githubusercontent.com/113560850/224107451-4d17f204-f348-4d4d-8b37-3cebdc94579c.png)
+
+
