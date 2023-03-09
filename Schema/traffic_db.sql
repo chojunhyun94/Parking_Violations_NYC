@@ -1,6 +1,8 @@
 ﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
+-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
+-- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
 CREATE TABLE "Parking_Violations_Raw" (
     "Summons_Number" float   NOT NULL,
@@ -53,44 +55,40 @@ CREATE TABLE "Parking_Violations_Clean" (
     "Vehicle_Make" varchar(5)   NOT NULL,
     "Vehicle_Expiration_Date" int   NOT NULL,
     "Violation_Location" int   NOT NULL,
-    "Violation_Time" varchar(5)   NOT NULL,
+    "Violation_Time" timestamp   NOT NULL,
     "Street_Name" varchar(20)   NOT NULL,
     "Vehicle_Color" varchar(6)   NOT NULL,
     "Vehicle_Year" int   NOT NULL
 );
 
-CREATE TABLE "Moving_Violations_Raw" (
-    "EVNT_KEY" int   NOT NULL,
-    "VIOLATION_DATE" timestamp(D/M/Y)   NOT NULL,
-    "VIOLATION_TIME" timestamp(h/m/s)   NOT NULL,
-    "CHG_LAW_CD" varchar(5)   NOT NULL,
-    "VIOLATION_CODE" varchar(10)   NOT NULL,
-    "VEH_CATEGORY" varchar(10)   NOT NULL,
-    "CITY_NM" varchar(10)   NOT NULL,
-    "RPT_OWNING_CMD" int   NOT NULL,
-    "X_COORD_CD" int   NOT NULL,
-    "Y_COORD_CD" int   NOT NULL,
-    "Latitude" float   NOT NULL,
-    "Longitude" float   NOT NULL,
-    "Location" varchar(50)   NOT NULL,
-    "Zip_Codes" int   NOT NULL,
-    "Community_Districts" int   NOT NULL,
-    "Borough_Boundaries" int   NOT NULL,
-    "City_Council_Districts" int   NOT NULL,
-    "Police_Precints" int   NOT NULL
+CREATE TABLE "Parking_Violations_ML" (
+    "Registration_State_Group" int   NOT NULL,
+    "Plate_Type_Group" int   NOT NULL,
+    "Violation_Code" int   NOT NULL,
+    "Vehicle_Body_Type_Group" int   NOT NULL,
+    "Vehicle_Make_Group" int   NOT NULL,
+    "Vehicle_Expiration_Date" int   NOT NULL,
+    "Violation_Location" int   NOT NULL,
+    "Violation_Time" datetime   NOT NULL,
+    "Street_Name" varchar(20)   NOT NULL,
+    "Vehicle_Color_Group" int   NOT NULL,
+    "Vehicle_Year" int   NOT NULL
 );
 
-CREATE TABLE "Moving_Violations_Clean" (
-    "VIOLATION_DATE" timestamp(D/M/Y)   NOT NULL,
-    "VIOLATION_TIME" timestamp(h/m/s)   NOT NULL,
-    "VEH_CATEGORY" varchar(10)   NOT NULL,
-    "Latitude" float   NOT NULL,
-    "Longitude" float   NOT NULL
+CREATE TABLE "Parking_Violations_Board" (
+    "Registration_State" varchar(2)   NOT NULL,
+    "Plate_Type_Group_Name" varchar(3)   NOT NULL,
+    "Violation_Code" int   NOT NULL,
+    "Vehicle_Body_Type_Group_Name" varchar(4)   NOT NULL,
+    "Vehicle_Make_Group_Name" varchar(5)   NOT NULL,
+    "Vehicle_Expiration_Date" int   NOT NULL,
+    "Violation_Location" int   NOT NULL,
+    "Violation_Time" datetime   NOT NULL,
+    "Street_Name" varchar(20)   NOT NULL,
+    "Vehicle_Color_Group_Name" varchar(6)   NOT NULL,
+    "Vehicle_Year" int   NOT NULL
 );
 
 ALTER TABLE "Parking_Violations_Raw" ADD CONSTRAINT "fk_Parking_Violations_Raw_Registration_State_Plate_Type_Violation_Code_Vehicle_Body_Type_Vehicle_Make_Vehicle_Expiration_Date_Violation_Location_Violation_Time_Street_Name_Vehicle_Color_Vehicle_Year" FOREIGN KEY("Registration_State", "Plate_Type", "Violation_Code", "Vehicle_Body_Type", "Vehicle_Make", "Vehicle_Expiration_Date", "Violation_Location", "Violation_Time", "Street_Name", "Vehicle_Color", "Vehicle_Year")
 REFERENCES "Parking_Violations_Clean" ("Registration_State", "Plate_Type", "Violation_Code", "Vehicle_Body_Type", "Vehicle_Make", "Vehicle_Expiration_Date", "Violation_Location", "Violation_Time", "Street_Name", "Vehicle_Color", "Vehicle_Year");
-
-ALTER TABLE "Moving_Violations_Raw" ADD CONSTRAINT "fk_Moving_Violations_Raw_VIOLATION_DATE_VIOLATION_TIME_VEH_CATEGORY_Latitude_Longitude" FOREIGN KEY("VIOLATION_DATE", "VIOLATION_TIME", "VEH_CATEGORY", "Latitude", "Longitude")
-REFERENCES "Moving_Violations_Clean" ("VIOLATION_DATE", "VIOLATION_TIME", "VEH_CATEGORY", "Latitude", "Longitude");
 
