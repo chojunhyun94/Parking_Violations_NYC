@@ -35,3 +35,48 @@ Public data on NYCOpenData from NYC Department of Finance (DOF), we have a data 
 Once the data is cleaned, it should look similar to this DB mock-up, with alternative tables for use in machine learning and presentations:
 ![traffic_db_wip.png](images/traffic_db_cleaned.png)
 
+Status:
+Did alot of reoganizing in terms of comitting files and updating our csv file to reflect the values that we need; also reduced the number of items to not take up space
+
+I am working on using the .mask() function in order to replace the colors in the csv file with different values 
+
+
+Status 3/9/2023
+
+I have just completed the code to filter for the colors that we want. After MUCH trial and error, I the dataframe below contains the 10 car colors needed for the machine learning:
+
+![image](https://user-images.githubusercontent.com/113560850/224102899-8dbadf00-d795-48f2-b189-89e27ecf3899.png)
+
+Here the .iloc function is enhanced to reflect only rows with certain values, or colors in this case. It is a much more granular method than just using .loc to find a specific row column value pairing 
+
+`````
+car_colors = df.loc[df['Vehicle Color'].isin(["BLACK", "WHITE","BLUE", "GREY", "SILVE","ORANG","PURPL","BEIGE","GREEN","PINK"])]
+car_colors.head(10)
+
+
+`````
+
+The code below is also useful though not if you have MANY values you wish to get rid of
+
+````
+def filter_rows_by_values(df, col, values):
+    return df[~df[col].isin(values)]
+
+color_filter = filter_rows_by_values(df, "Vehicle Color", ["BLACK", "WHITE","BLUE", "GREY", "SILVE","ORANG","PURPL","BEIGE","GREEN","PINK"])
+color_filter.head(50)
+`````
+
+Update 2: 3/9/2023
+
+I was able to change the values into integers 1-10 using the code:
+
+`````
+df['Vehicle Color'] = df['Vehicle Color'].apply(lambda x: colors[x] if (x in colors) else 9)
+car_colors.head(10)
+
+`````
+The following table was produced:
+
+![image](https://user-images.githubusercontent.com/113560850/224107451-4d17f204-f348-4d4d-8b37-3cebdc94579c.png)
+
+
