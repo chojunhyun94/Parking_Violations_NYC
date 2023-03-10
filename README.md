@@ -1,6 +1,9 @@
 # Group_Final_Project
 Final Group Project involving ETL, Visualizations, and Machine Learning
 
+## Topic
+Parking Violations in NYC. We were looking through datasets that were publically available and found this datset and we wanted to see if there were any trends in parking violations.
+
 ## Resources
 In the resources.zip, there is a data file which was too large for git's data budget. Inside is 'cleaned_data.csv'
 
