@@ -80,3 +80,5 @@ The following table was produced:
 ![image](https://user-images.githubusercontent.com/113560850/224107451-4d17f204-f348-4d4d-8b37-3cebdc94579c.png)
 
 
+
+Since location might be an important factor that plays into the probability of getting a ticket, we will try to clean up the street address  data and find a way to condense the information. We think that having too many different individual street addresses might be too much information and the data would be too widespread, so we will try to use Google maps API to change the addresses into zipcodes so that we can better group the dataset and so this way it is easier to find connections between tickets and location.
