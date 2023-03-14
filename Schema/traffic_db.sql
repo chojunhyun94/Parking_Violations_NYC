@@ -3,6 +3,8 @@
 
 -- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
+-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
+-- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
 CREATE TABLE "Parking_Violations_Raw" (
     "Summons_Number" float   NOT NULL,
@@ -53,10 +55,7 @@ CREATE TABLE "Parking_Violations_Clean" (
     "Violation_Code" int   NOT NULL,
     "Vehicle_Body_Type" varchar(4)   NOT NULL,
     "Vehicle_Make" varchar(5)   NOT NULL,
-    "Vehicle_Expiration_Date" int   NOT NULL,
-    "Violation_Location" int   NOT NULL,
     "Violation_Time" timestamp   NOT NULL,
-    "Street_Name" varchar(20)   NOT NULL,
     "Vehicle_Color" varchar(6)   NOT NULL,
     "Vehicle_Year" int   NOT NULL
 );
@@ -67,10 +66,7 @@ CREATE TABLE "Parking_Violations_ML" (
     "Violation_Code" int   NOT NULL,
     "Vehicle_Body_Type_Group" int   NOT NULL,
     "Vehicle_Make_Group" int   NOT NULL,
-    "Vehicle_Expiration_Date" int   NOT NULL,
-    "Violation_Location" int   NOT NULL,
     "Violation_Time" datetime   NOT NULL,
-    "Street_Name" varchar(20)   NOT NULL,
     "Vehicle_Color_Group" int   NOT NULL,
     "Vehicle_Year" int   NOT NULL
 );
@@ -89,6 +85,6 @@ CREATE TABLE "Parking_Violations_Board" (
     "Vehicle_Year" int   NOT NULL
 );
 
-ALTER TABLE "Parking_Violations_Raw" ADD CONSTRAINT "fk_Parking_Violations_Raw_Registration_State_Plate_Type_Violation_Code_Vehicle_Body_Type_Vehicle_Make_Vehicle_Expiration_Date_Violation_Location_Violation_Time_Street_Name_Vehicle_Color_Vehicle_Year" FOREIGN KEY("Registration_State", "Plate_Type", "Violation_Code", "Vehicle_Body_Type", "Vehicle_Make", "Vehicle_Expiration_Date", "Violation_Location", "Violation_Time", "Street_Name", "Vehicle_Color", "Vehicle_Year")
-REFERENCES "Parking_Violations_Clean" ("Registration_State", "Plate_Type", "Violation_Code", "Vehicle_Body_Type", "Vehicle_Make", "Vehicle_Expiration_Date", "Violation_Location", "Violation_Time", "Street_Name", "Vehicle_Color", "Vehicle_Year");
+ALTER TABLE "Parking_Violations_Raw" ADD CONSTRAINT "fk_Parking_Violations_Raw_Registration_State_Plate_Type_Violation_Code_Vehicle_Body_Type_Vehicle_Make_Violation_Time_Vehicle_Color_Vehicle_Year" FOREIGN KEY("Registration_State", "Plate_Type", "Violation_Code", "Vehicle_Body_Type", "Vehicle_Make", "Violation_Time", "Vehicle_Color", "Vehicle_Year")
+REFERENCES "Parking_Violations_Clean" ("Registration_State", "Plate_Type", "Violation_Code", "Vehicle_Body_Type", "Vehicle_Make", "Violation_Time", "Vehicle_Color", "Vehicle_Year");
 
