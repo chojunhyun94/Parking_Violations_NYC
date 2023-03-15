@@ -1,5 +1,4 @@
 # Group_Final_Project
-Final Group Project involving ETL, Visualizations, and Machine Learning
 
 ## Topic
 Parking Violations in NYC. We were looking through datasets that were publically available and found this datset and we wanted to see if there were any trends in parking violations.
@@ -17,81 +16,27 @@ Once the data is cleaned, it should look similar to this DB mock-up, with altern
 - What color car are more prone to violations (in comparison to the proportion of colors of cars)?
 - Can vehicle type predict type of violation?
 
-## Status Updates
-#### Status As of 3/5/2023
 
-We have changed the goal of out project and the data set. We are sitll in the middle of cleaning the data. We have been able to clarify the different tables we will be creating and using machine learning on. Additionally, we are leaning towards making an unsupervised machine learning model.
-In this project we will be focusing on trying to predict the car model that is most likely to recieve a parking ticket including which areas they are most likely to be pulled over. When given certain variables, will we be able to predict whether or not a car model will be pulled over there?
 
-Here are is some of our cleaned data ( we know that all of the data needs to be numbers for machine learning so we are in the process of doing this at the moment):
+# Overview
 
-![image](https://user-images.githubusercontent.com/113560850/223585965-2b71bbe1-0192-4737-b96c-80e733719677.png)
+The purpose of this project is to use machine learning to help understand the major factors that contribute to a car getting a parking ticket using public datasets from the City of New York (NYCOpenData) so that given a hypothetical instance, the probability in which the car getting a ticket could be predicted. 
 
-Some code that I have enetered relates to using the lambda function to change the names of the car colors to numbers:
+# Results
+The original dataset for 2023 Parking Violatons was taken from the OpenData source from the City of New York with more than 10 million datapoints. 
+<img width="1090" alt="Screen Shot 2023-03-15 at 12 36 00 AM" src="https://user-images.githubusercontent.com/115126898/225173386-35c78b72-6767-4a68-95cf-ee8b8fa5b80d.png">
 
-```
-#Vehicle Color Encoded
-car_color = {
-      "BLK": 0,
-      "RED": 1,
-      "BLUE": 2,
-      "GRAY": 3,
-      "WHITE": 4,
-   
-  }
+Original dataset includes detailed information for each individual ticket including 'Summons Number', 'Plate ID', 'Registration State', 'Plate Type', etc.
+<img width="851" alt="Screen Shot 2023-03-15 at 12 42 05 AM" src="https://user-images.githubusercontent.com/115126898/225174764-d38e2049-7311-4e43-a96a-d3f6c8c766d6.png">
 
-df["car_color"] = df["Vehicle Color"].apply(lambda x: car_color[x])
-```
-
-Changing the "Violaton Time" data from a string to datetime also involves removing incomplete data or inaccurate data. 
-
-The original "Violaton Time" format was stored as HHMMA or HHMMP (Hour, Minute, A for AM or P for PM). A few issues were encountered when applying the datatime formula. When cleaning the data, it was found that some rows were missing the A or P indicators for AM or PM, so in order to drop the incomplete rows, the len() formula was used to count the length of the object of each row, and then using the loc() function, any length that were less than 5 digits long (HHMMA) were dropped. The lette M was applied to all the rows in order to help with the datetime formula later. Another issue was that not all data were correctly inputed, such as the hour. Since the hour indicators should only go up to 12 (12:00 AM or PM), anything above 12 for the hour (12MMA) such as 73MMA, should be dropped. Lastly, some of the data included spaces for 0, for example 01 6AM instead of 0106AM, which results in an error when applying the datatime formula. Code used to replace the spaces with 0 was applied. Datetime was used to change formula to format into either HH:MM AM or HH:MM PM
+Using Python, the initial dataset was cleaned to drop incomplete data and to narrow down to the important factors that most likely contribute to getting a ticket such as vehicle type, color, violation type, etc. The dataset was saved to a much smaller 'cleaned_data.csv' to about 7 million datapoints.
 
 
 
-#### Status:
-Did alot of reoganizing in terms of comitting files and updating our csv file to reflect the values that we need; also reduced the number of items to not take up space
-
-I am working on using the .mask() function in order to replace the colors in the csv file with different values 
+# Summary
 
 
-#### Status 3/9/2023
-
-I have just completed the code to filter for the colors that we want. After MUCH trial and error, I the dataframe below contains the 10 car colors needed for the machine learning:
-
-![image](https://user-images.githubusercontent.com/113560850/224102899-8dbadf00-d795-48f2-b189-89e27ecf3899.png)
-
-Here the .iloc function is enhanced to reflect only rows with certain values, or colors in this case. It is a much more granular method than just using .loc to find a specific row column value pairing 
-
-`````
-car_colors = df.loc[df['Vehicle Color'].isin(["BLACK", "WHITE","BLUE", "GREY", "SILVE","ORANG","PURPL","BEIGE","GREEN","PINK"])]
-car_colors.head(10)
 
 
-`````
 
-The code below is also useful though not if you have MANY values you wish to get rid of
-
-`````
-def filter_rows_by_values(df, col, values):
-    return df[~df[col].isin(values)]
-
-color_filter = filter_rows_by_values(df, "Vehicle Color", ["BLACK", "WHITE","BLUE", "GREY", "SILVE","ORANG","PURPL","BEIGE","GREEN","PINK"])
-color_filter.head(50)
-`````
-
-#### 3/9/2023
-
-I was able to change the values into integers 1-10 using the code:
-
-`````
-df['Vehicle Color'] = df['Vehicle Color'].apply(lambda x: colors[x] if (x in colors) else 9)
-car_colors.head(10)
-
-`````
-The following table was produced:
-
-![image](https://user-images.githubusercontent.com/113560850/224107451-4d17f204-f348-4d4d-8b37-3cebdc94579c.png)
-
-
-Since location might be an important factor that plays into the probability of getting a ticket, we will try to clean up the street address  data and find a way to condense the information. We think that having too many different individual street addresses might be too much information and the data would be too widespread, so we will try to use Google maps API to change the addresses into zipcodes so that we can better group the dataset and so this way it is easier to find connections between tickets and location.
+Tableau was used to help visualize the data and to see the patterns represented in the cleaned dataset. 
