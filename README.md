@@ -11,6 +11,12 @@ Public data on NYCOpenData from NYC Department of Finance (DOF), we have a data 
 Once the data is cleaned, it should look similar to this DB mock-up, with alternative tables for use in machine learning and presentations:
 ![traffic_db_wip.png](images/traffic_db_cleaned.png)
 
+##Multiple Regression Analysis
+![image](https://user-images.githubusercontent.com/113560850/225720170-64d924a3-1833-49db-9e57-2f4794ff4902.png)
+
+
+This data shows that given violation time, car model/make, vehicle color against violation code, we can somewhat predict whether or not a car will be issued a violation ticket. Our Multiple R Sqaured value is 23%, meaning only 23% of ou values will be correctly predicted based on this model. With machine learning, we hope to be able to fine-tune this and have our model be able to predict violation ticket issues accurately.
+
 ## Questions
 - What relationship is there between the type, color, or make of car with violation?
 - What color car are more prone to violations (in comparison to the proportion of colors of cars)?
