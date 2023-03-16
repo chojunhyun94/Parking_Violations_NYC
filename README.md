@@ -1,10 +1,16 @@
 # Group_Final_Project
 
+# Overview
+The purpose of this project is to use machine learning to help understand the major factors that contribute to a car getting a parking ticket using public datasets from the City of New York (NYCOpenData) so that given a hypothetical instance, the probability in which the car getting a ticket could be predicted. We believe this data can lead to some interesting patterns about the cars based on some emerging patterns. This can then be used to create a profile of drivers based on these factors.
+
 ## Topic
 Parking Violations in NYC. We were looking through datasets that were publically available and found this datset and we wanted to see if there were any trends in parking violations.
 
 ## Resources
-In the resources.zip, there is a data file which was too large for git's data budget. Inside is 'cleaned_data.csv'
+We originally found the parking violations data for the entirety of 2023 year to date. The original file was way too large so we included the cleaned file instead under 'Resources.zip'.
+Inside of 'Resources.zip', there are 3 csv files, each meant to represent our data at different points of our analysis.
+'cleaned_data.csv' is our initial data that we got after removing many features that were deemed unusable by the group.
+'tableau_data.csv' is further cleaned
 
 ## Description of Data
 Public data on NYCOpenData from NYC Department of Finance (DOF), we have a data set with traffic violations. Our variables of interest include registration data, vehicle data, violation data and location.
@@ -60,9 +66,7 @@ A similar phenomenon can be observed in body types:
 
 
 
-# Overview
 
-The purpose of this project is to use machine learning to help understand the major factors that contribute to a car getting a parking ticket using public datasets from the City of New York (NYCOpenData) so that given a hypothetical instance, the probability in which the car getting a ticket could be predicted. 
 
 # Results
 The original dataset for 2023 Parking Violatons was taken from the OpenData source from the City of New York with more than 10 million datapoints. 
