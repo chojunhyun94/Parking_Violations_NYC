@@ -58,7 +58,7 @@ CREATE TABLE "parking_violations_clean" (
     "vehicle_body_type" varchar(4)   NOT NULL,
     "vehicle_make" varchar(5)   NOT NULL,
     "violation_time" varchar(5)   NOT NULL,
-    "vehicle_color" varchar(6)   NOT NULL,
+    "vehicle_color" varchar(3)   NOT NULL,
     "vehicle_year" int   NOT NULL
 );
 
