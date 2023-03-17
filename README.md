@@ -10,9 +10,10 @@ Parking Violations in NYC. We were looking through datasets that were publically
 We originally found the parking violations data for the entirety of 2023 year to date. The original file was way too large so we included the cleaned file instead under 'Resources.zip'.
 Inside of 'Resources.zip', there are 3 csv files, each meant to represent our data at different points of our analysis.
 'cleaned_data.csv' is our initial data that we got after removing many features that were deemed unusable by the group.
-'tableau_data.csv' is further cleaned
+'tableau_data.csv' is further cleaned for easier visualization in tableau dashboard.
+'training_data.csv' is the encoded file that we used as a checkpoint in our machine learning modeling.
 
-## Description of Data
+# Description of Data
 Public data on NYCOpenData from NYC Department of Finance (DOF), we have a data set with traffic violations. Our variables of interest include registration data, vehicle data, violation data and location.
 Once the data is cleaned, it should look similar to this DB mock-up, with alternative tables for use in machine learning and presentations:
 
@@ -55,11 +56,11 @@ A similar phenomenon can be observed in body types:
 ![violation_count_van.png](images/violation_count_van.png)
 - The popular suburban sedan has a more similar distribution to the overal distribution and popular manufacturers/colors, while the more commercially used van has a much difference distribution of violations, more similar to the Fruehauf manufacturer, which mainly produces vehicles for commercial use. 
 
-#### Expectations:
+### Expectations:
 - Overall, initial viewings of the data show that there are differences between in what kinds of vehicles are reported for certain kinds of violations. 
 - It can be expected that variables like make and model of cars to have a higher impact and usefulness for the machine learning model than other variables like car color. 
 
-## Questions
+# Questions
 - What relationship is there between the type, color, or make of car with violation?
 - What color cars are more prone to violations (in comparison to the proportion of colors of cars)?
 - Can vehicle type predict type of violation?
@@ -77,7 +78,33 @@ Original dataset includes detailed information for each individual ticket includ
 
 Using Python, the initial dataset was cleaned to drop incomplete data and to narrow down to the important factors that most likely contribute to getting a ticket such as vehicle type, color, violation type, etc. The dataset was saved to a much smaller 'cleaned_data.csv' to about 7 million datapoints.
 
+Furthermore, the dataframe was encoded in preparation for some of the machine learning models we were planning to use. This is the result
 
+![filtered_dataframe.png]('images/filtered_dataframe.PNG')
+
+Because we initially saw some correlations from our EDA, we decided to run a logistic regression machine learning model to see if it could pick up on the trends we found. Because of the scale of the project, we decided to run the model in batches using an algorithm to take randomized batches from the original dataset.
+
+This is the batch_loader algorithm used to break down the dataframe
+
+![batch_loader.png]('images/batch_loader.PNG')
+
+This produces a tuple of the randomized rows from the dataframe. Each batch will be added into different models. We started with a logistic regression.
+
+### Logistic Regression
+
+#### Model Settings
+Batch size = 600,000
+Number of epochs = 1 (Due to time constraints. We will run a longer process after meeting deliverable)
+LogisticRegression Solver = 'lbfgs'
+
+#### Evaluation Metrics
+![logistic_regression_eval_metrics.png]('images/logistic_regression_eval_metrics')
+
+### Neural Network
+
+#### Model Settings
+
+#### Evaluation Metrics
 
 # Summary
 
