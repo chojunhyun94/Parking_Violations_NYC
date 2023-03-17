@@ -80,13 +80,13 @@ Using Python, the initial dataset was cleaned to drop incomplete data and to nar
 
 Furthermore, the dataframe was encoded in preparation for some of the machine learning models we were planning to use. This is the result
 
-![filtered_dataframe.png]('images/filtered_dataframe.PNG')
+![filtered_dataframe.png](images/filtered_dataframe.PNG)
 
 Because we initially saw some correlations from our EDA, we decided to run a logistic regression machine learning model to see if it could pick up on the trends we found. Because of the scale of the project, we decided to run the model in batches using an algorithm to take randomized batches from the original dataset.
 
 This is the batch_loader algorithm used to break down the dataframe
 
-![batch_loader.png]('images/batch_loader.PNG')
+![batch_loader.png](images/batch_loader.PNG)
 
 This produces a tuple of the randomized rows from the dataframe. Each batch will be added into different models. We started with a logistic regression.
 
@@ -98,7 +98,7 @@ Number of epochs = 1 (Due to time constraints. We will run a longer process afte
 LogisticRegression Solver = 'lbfgs'
 
 #### Evaluation Metrics
-![logistic_regression_eval_metrics.png]('images/logistic_regression_eval_metrics')
+![logistic_regression_eval_metrics.png](images/logistic_regression_eval_metrics)
 
 ### Neural Network
 
