@@ -98,7 +98,10 @@ Number of epochs = 1 (Due to time constraints. We will run a longer process afte
 LogisticRegression Solver = 'lbfgs'
 
 #### Evaluation Metrics
-![logistic_regression_eval_metrics.png](images/logistic_regression_eval_metrics)
+![confusion_matrix_heatmap.png](images/confusion_matrix_heatmap.PNG)
+Because of the number of features used in this model, the confusion matrix comes out as a very large matrix, which cannot be interpretted in the same way. Instead, we are using a heat map to see relations. At the moment, we are not sure how to interpret this heatmap.
+
+Since we have an imbalanced neural network, we used a balanced accuracy score. Our balanced accuracy score is only 0.029, which is very inaccurate. We believe this model will need to be improved upon for further deeper analysis.
 
 ### Neural Network
 
