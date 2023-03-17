@@ -93,8 +93,8 @@ This produces a tuple of the randomized rows from the dataframe. Each batch will
 ### Logistic Regression
 
 #### Model Settings
-Batch size = 600,000
-Number of epochs = 1 (Due to time constraints. We will run a longer process after meeting deliverable)
+Batch size = 600,000 <br>
+Number of epochs = 1 (Due to time constraints. We will run a longer process after meeting deliverable) <br>
 LogisticRegression Solver = 'lbfgs'
 
 #### Evaluation Metrics
@@ -107,11 +107,11 @@ LogisticRegression Solver = 'lbfgs'
 #### Evaluation Metrics
 
 # Summary
-
+<a href = "https://public.tableau.com/app/profile/mykhal.young/viz/FinalProject_16789899331220/ViolationCode?publish=yes">Link to tableau</a>
 
 
 
 
 Tableau was used to help visualize the data and to see the patterns represented in the cleaned dataset. 
 
-https://public.tableau.com/app/profile/mykhal.young/viz/FinalProject_16789899331220/ViolationCode?publish=yes
+
