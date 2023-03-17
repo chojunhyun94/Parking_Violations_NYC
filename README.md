@@ -19,6 +19,7 @@ Once the data is cleaned, it should look similar to this DB mock-up, with altern
 
 ![traffic_db_wip.png](images/traffic_db_cleaned.png)
 
+
 Once sorted, a cursory look with pgAdmin's query tool can show us if there are any corelations between violation codes and other factors, such as car color or car maker. 
 First, the overall distribution of violations and cars of the most common color: 
 
@@ -56,15 +57,14 @@ A similar phenomenon can be observed in body types:
 ![violation_count_van.png](images/violation_count_van.png)
 - The popular suburban sedan has a more similar distribution to the overal distribution and popular manufacturers/colors, while the more commercially used van has a much difference distribution of violations, more similar to the Fruehauf manufacturer, which mainly produces vehicles for commercial use. 
 
-### Expectations:
-- Overall, initial viewings of the data show that there are differences between in what kinds of vehicles are reported for certain kinds of violations. 
-- It can be expected that variables like make and model of cars to have a higher impact and usefulness for the machine learning model than other variables like car color. 
-
 # Questions
 - What relationship is there between the type, color, or make of car with violation?
 - What color cars are more prone to violations (in comparison to the proportion of colors of cars)?
 - Can vehicle type predict type of violation?
 
+### Expectations:
+- Overall, initial viewings of the data show that there are differences between in what kinds of vehicles are reported for certain kinds of violations. 
+- It can be expected that variables like make and model of cars to have a higher impact and usefulness for the machine learning model than other variables like car color. 
 
 
 
@@ -109,9 +109,11 @@ LogisticRegression Solver = 'lbfgs'
 # Summary
 <a href = "https://public.tableau.com/app/profile/mykhal.young/viz/FinalProject_16789899331220/ViolationCode?publish=yes">Link to tableau</a>
 
-
-
-
 Tableau was used to help visualize the data and to see the patterns represented in the cleaned dataset. 
 
+## Multiple Regression Analysis
+![image](https://user-images.githubusercontent.com/113560850/225720170-64d924a3-1833-49db-9e57-2f4794ff4902.png)
+
+
+This data shows that given violation time, car model/make, vehicle color against violation code, we can somewhat predict whether or not a car will be issued a violation ticket. Our Multiple R Sqaured value is 23%, meaning only 23% of ou values will be correctly predicted based on this model. With machine learning, we hope to be able to fine-tune this and have our model be able to predict violation ticket issues accurately.
 
