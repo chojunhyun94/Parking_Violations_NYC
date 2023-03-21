@@ -118,5 +118,5 @@ Tableau was used to help visualize the data and to see the patterns represented 
 ![image](https://user-images.githubusercontent.com/113560850/225720170-64d924a3-1833-49db-9e57-2f4794ff4902.png)
 
 
-This data shows that given violation time, car model/make, vehicle color against violation code, we can somewhat predict whether or not a car will be issued a violation ticket. Our Multiple R Sqaured value is 23%, meaning only 23% of ou values will be correctly predicted based on this model. With machine learning, we hope to be able to fine-tune this and have our model be able to predict violation ticket issues accurately.
+This data shows that given violation time, car model/make, vehicle color against violation code, we can somewhat predict whether or not a car will be issued a violation ticket. Our Multiple R Sqaured value is 23%, meaning only 23% of our values will be correctly predicted based on this model. With machine learning, we hope to be able to fine-tune this and have our model be able to predict violation ticket issues accurately. However this is a bit misleading because we have an enormous value for degrees of freedom, meaning we took into account too many values to make an accurate prediction.
 
