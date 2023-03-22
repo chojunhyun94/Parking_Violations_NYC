@@ -18,7 +18,7 @@ Public data on NYCOpenData from NYC Department of Finance (DOF), we have a data 
 Once the data is cleaned, it should look similar to this DB mock-up, with alternative tables for use in machine learning and presentations:
 
 ![traffic_db_wip.png](images/traffic_db_cleaned.png)
-
+<br><a href="https://data.cityofnewyork.us/City-Government/Parking-Violations-Issued-Fiscal-Year-2023/pvqr-7yc4/data" target = "_blank">Link to Data</a>
 
 Once sorted, a cursory look with pgAdmin's query tool can show us if there are any corelations between violation codes and other factors, such as car color or car maker. 
 First, the overall distribution of violations and cars of the most common color: 
