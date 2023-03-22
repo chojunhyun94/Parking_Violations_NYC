@@ -67,8 +67,6 @@ A similar phenomenon can be observed in body types:
 - It can be expected that variables like make and model of cars to have a higher impact and usefulness for the machine learning model than other variables like car color. 
 
 
-
-
 # Results
 The original dataset for 2023 Parking Violatons was taken from the OpenData source from the City of New York with more than 10 million datapoints. 
 <img width="1090" alt="Screen Shot 2023-03-15 at 12 36 00 AM" src="https://user-images.githubusercontent.com/115126898/225173386-35c78b72-6767-4a68-95cf-ee8b8fa5b80d.png">
@@ -92,31 +90,52 @@ This produces a tuple of the randomized rows from the dataframe. Each batch will
 
 ### Logistic Regression
 
-#### Model Settings
-Batch size = 600,000 <br>
-Number of epochs = 1 (Due to time constraints. We will run a longer process after meeting deliverable) <br>
-LogisticRegression Solver = 'lbfgs'
-
-#### Evaluation Metrics
-![confusion_matrix_heatmap.png](images/confusion_matrix_heatmap.PNG)
-Because of the number of features used in this model, the confusion matrix comes out as a very large matrix, which cannot be interpretted in the same way. Instead, we are using a heat map to see relations. At the moment, we are not sure how to interpret this heatmap.
-
-Since we have an imbalanced neural network, we used a balanced accuracy score. Our balanced accuracy score is only 0.029, which is very inaccurate. We believe this model will need to be improved upon for further deeper analysis.
-
-### Neural Network
+#### Reason For Model
+As we completed our EDA, we realized that there were some patterns to be recognized . After seeing these patterns, we wanted to see if we can fit these models as well. After some trial and error, we decided to narrow the scope of the model to specific violations that would help increase the performance of the model. We narrowed it down to violation code 36: 'Speeding in School Zone' because this was the biggest violation. However, with more time we could develop for other violation codes.
 
 #### Model Settings
+'max_iter' = 500
+'solver' = 'saga'
+'random_state' = 2
+We chose these settings because it performed the best from our testing. The larger iterations allowed the model to converge better. The solver we tried a few, but saga gave us the better performance. However, we would need further testing to get a better conclusion.
+
+We also used a standard scalar on the model which improved the performance by 2%. It isn't much, but it certainly is an improvement.
 
 #### Evaluation Metrics
+![logistic_scaled_eval_metrics.PNG](images/logistic_scaled_eval_metrics.PNG)
+
+### Random Forest
+
+#### Reason for Model
+Once we had our logistic regression complete, we wanted to test further using some supervised learning. This was mostly done because of our initial 0.03 accuracy score.
+
+#### Model Settings
+n_estimators = 50
+
+#### Evaluation Metrics
+![random_forest_eval_metrics.PNG](images/random_forest_eval_metrics.PNG)
 
 # Summary
 <a href = "https://public.tableau.com/app/profile/mykhal.young/viz/FinalProject_16789899331220/ViolationCode?publish=yes">Link to tableau</a>
 
 Tableau was used to help visualize the data and to see the patterns represented in the cleaned dataset. 
 
-## Multiple Regression Analysis
+#### Multiple Regression Analysis
 ![image](https://user-images.githubusercontent.com/113560850/225720170-64d924a3-1833-49db-9e57-2f4794ff4902.png)
 
 
 This data shows that given violation time, car model/make, vehicle color against violation code, we can somewhat predict whether or not a car will be issued a violation ticket. Our Multiple R Sqaured value is 23%, meaning only 23% of our values will be correctly predicted based on this model. With machine learning, we hope to be able to fine-tune this and have our model be able to predict violation ticket issues accurately. However this is a bit misleading because we have an enormous value for degrees of freedom, meaning we took into account too many values to make an accurate prediction.
+
+
+#### Logistic Regression Analysis
+![logistic_scaled_eval_metrics.PNG](images/logistic_scaled_eval_metrics.PNG)
+Our initial results for a logistic regression model only had an accuracy of 0.031 at best. By helping the model focus on a specific violation code, we were able to bigger improvements. The accuracy score for the model came out to 0.576 or 57.6%. This is a significant improvement considering where we were. This confirms our initial observations from the EDA of some patterns forming in our data. However, there are further analysis that we would like to see in the future.
+
+![random_forest_eval_metrics.PNG](images/random_forest_eval_metrics.PNG)
+Our results with the random forests only further proved this case with a higher accuracy of 
+
+Interestingly, our models (both logistic and random forest) is actually better at predicting which cars wouldn't get a speeding in school zone violation. This is something we didn't expect from our initial EDA, but it goes to show that there are specific car types, model, and/or color that would not speed in a school zone. Further analysis will need to be done for other violations, but we have created the initial base line that can easily be adapted to other violations.
+
+#### K Means Analysis
+
 
