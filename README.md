@@ -115,6 +115,14 @@ n_estimators = 50
 #### Evaluation Metrics
 ![random_forest_eval_metrics.PNG](images/random_forest_eval_metrics.PNG)
 
+### K Means
+
+#### Reason for Model
+We wanted to try some unsupervised learning to see if some unknown conclusions can be drawn from the model.
+
+#### Elbow Curve
+![kmeans_elbow_curve.png](images/kmeans_elbow_curve.PNG)
+
 # Summary
 <a href = "https://public.tableau.com/app/profile/mykhal.young/viz/FinalProject_16789899331220/ViolationCode?publish=yes">Link to tableau</a>
 
@@ -135,7 +143,4 @@ Our initial results for a logistic regression model only had an accuracy of 0.03
 Our results with the random forests only further proved this case with a higher accuracy of 
 
 Interestingly, our models (both logistic and random forest) is actually better at predicting which cars wouldn't get a speeding in school zone violation. This is something we didn't expect from our initial EDA, but it goes to show that there are specific car types, model, and/or color that would not speed in a school zone. Further analysis will need to be done for other violations, but we have created the initial base line that can easily be adapted to other violations.
-
-#### K Means Analysis
-
 
