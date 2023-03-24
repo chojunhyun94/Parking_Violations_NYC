@@ -42,3 +42,7 @@ Using Python, the initial dataset was cleaned to drop incomplete data and to nar
 Tableau was used to help visualize the data and to see the patterns represented in the cleaned dataset. 
 
 https://public.tableau.com/app/profile/mykhal.young/viz/FinalProject_16789899331220/ViolationCode?publish=yes
+
+![image](https://user-images.githubusercontent.com/113560850/227402659-409a8037-cfda-46ed-8bc9-e57053036a96.png)
+
+This tableau data compares the variables against the violations codes and how much of each violation code contributes to the overall population.
