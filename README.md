@@ -149,4 +149,16 @@ Interestingly, our models (both logistic and random forest) is actually better a
 
 The image shows that there is a high correlation between the variables we tested for and the independent variable. However, the R-sqaured value is extremely low. This is the case because with such large amounts of data, the variables would start to have some effect on the outcome, which is what is being shown. However, by looking at the data on a more granular level, we can see that the r-sqaured value starts to increase the more variables we add to the model. This means that if we stratify the dataset to offset the minority vaules then we would find a very strong r-squared value.
 
+####Tableau
+
+Tableau was used to help visualize the data and to see the patterns represented in the cleaned dataset.
+
+https://public.tableau.com/app/profile/mykhal.young/viz/FinalProject_16789899331220/ViolationCode?publish=yes
+
+image
+
+This tableau data compares the variables against the violations codes and how much of each violation code contributes to the overall population.
+
+Violation code 36 was overwhelmingly overrepresented, which had implications for our machine learning outcome. 
+
 
