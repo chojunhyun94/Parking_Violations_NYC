@@ -144,3 +144,9 @@ Our results with the random forests only further proved this case with a higher 
 
 Interestingly, our models (both logistic and random forest) is actually better at predicting which cars wouldn't get a speeding in school zone violation. This is something we didn't expect from our initial EDA, but it goes to show that there are specific car types, model, and/or color that would not speed in a school zone. Further analysis will need to be done for other violations, but we have created the initial base line that can easily be adapted to other violations.
 
+####Chi Sqaure Test Analysis
+![Screenshot 2023-03-16 143507](https://user-images.githubusercontent.com/113560850/227402997-8d7449cf-49de-47ba-89b4-0c5c9bf240cf.png)
+
+The image shows that there is a high correlation between the variables we tested for and the independent variable. However, the R-sqaured value is extremely low. This is the case because with such large amounts of data, the variables would start to have some effect on the outcome, which is what is being shown. However, by looking at the data on a more granular level, we can see that the r-sqaured value starts to increase the more variables we add to the model. This means that if we stratify the dataset to offset the minority vaules then we would find a very strong r-squared value.
+
+
