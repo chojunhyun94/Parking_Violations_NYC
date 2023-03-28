@@ -153,7 +153,7 @@ The image shows that there is a high correlation between the variables we tested
 
 Tableau was used to help visualize the data and to see the patterns represented in the cleaned dataset.
 
-https://public.tableau.com/app/profile/mykhal.young/viz/FinalProject_16789899331220/ViolationCode?publish=yes
+<a href="https://public.tableau.com/app/profile/mykhal.young/viz/FinalProject_16789899331220/Dashboard1">Link to Tableau</a>
 
 image
 
